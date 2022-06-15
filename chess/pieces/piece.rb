@@ -9,7 +9,7 @@ class Piece
   end
 
   def to_s
-      "#{symbol}"
+      symbol
   end
 
   def empty?
@@ -17,7 +17,7 @@ class Piece
   end
 
   def valid_moves
-
+      self.moves
   end
 
   def pos=(val)
@@ -27,6 +27,10 @@ class Piece
 
   def symbol
     raise 'not implemented'
+  end
+
+  def inspect
+    symbol
   end
 
   private

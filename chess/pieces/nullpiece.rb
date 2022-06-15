@@ -1,21 +1,28 @@
-require_relative "../piece.rb"
+require_relative "piece"
+
 require "singleton"
 
 class NullPiece < Piece
 
 include Singleton
 
-  attr_reader :color
-
   def initialize
-    @color = color
+    @color = "blue"
   end
 
   def moves
     
   end
 
+  def color
+    @color
+  end
+
   def symbol
-    :NUll
+    :"_"
+  end
+
+  def empty?
+    true
   end
 end

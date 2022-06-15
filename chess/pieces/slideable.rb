@@ -14,10 +14,11 @@ module Slideable
   def moves 
     #returns an array of all possible moves that rook/bishop/queen can go to
       #not blocked && on the board
-
-    #
+    
+    #initialize array
     moves = []
 
+    #adding each possible to moves using our recursive call on grow_unblocked_moves
     move_dirs.each do |dx, dy|
       moves += (grow_unblocked_moves_in_dir(dx, dy))
     end
@@ -45,15 +46,16 @@ module Slideable
 
     new_pos = [new_row, new_col]
 
-    break if !board.valid_pos?(new_pos)
+    break if !board.valid_pos(new_pos)
 
-    end
-
-    if board.empty?(new_pos)
+    if board[new_pos].empty?
       moves << new_pos
     end
+      #need to check if it is an enemy piece
 
-    
+    end
+
+    moves
   end
 
 end
